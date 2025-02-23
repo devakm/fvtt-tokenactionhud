@@ -271,7 +271,7 @@ export class ActionHandlerGURPS extends ActionHandler {
     let result = this.initializeEmptyCategory("postures");
     let attributeCategory = this.initializeEmptySubcategory();
     let postures = {...GURPS.StatusEffect.getAllPostures()}
-    postures[GURPS.StatusEffectStanding] = { id: GURPS.StatusEffectStanding, name: GURPS.StatusEffectStandingLabel, icon: 'icons\statuses\dd-condition-standing.webp' }
+    postures[GURPS.StatusEffectStanding] = { id: GURPS.StatusEffectStanding, name: GURPS.StatusEffectStandingLabel, img: 'systems/gurps/icons/statuses/dd-condition-standing.webp' }
     Object.values(postures).forEach(m => {
       attributeCategory.actions.push({
         name: this.i18n(m.name),
