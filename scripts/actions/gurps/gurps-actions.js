@@ -274,9 +274,9 @@ export class ActionHandlerGURPS extends ActionHandler {
     postures[GURPS.StatusEffectStanding] = { id: GURPS.StatusEffectStanding, label: GURPS.StatusEffectStandingLabel, icon: 'icons/svg/invisible.svg' }
     Object.values(postures).forEach(m => {
       attributeCategory.actions.push({
-        name: this.i18n(m.label),
+        name: this.i18n(m.name),
         encodedValue: ["otf", tokenId, '/st + ' + m.id].join(this.delimiter),
-        img: m.icon
+        img: m.img
       }); 
     })   
     this._combineSubcategoryWithCategory(result, '', attributeCategory);
