@@ -282,14 +282,14 @@ export class ActionHandlerGURPS extends ActionHandler {
     this._combineSubcategoryWithCategory(result, '', attributeCategory);
     return result
   }
-    
   _defenses(actor, tokenId) {
-    let result = this.initializeEmptyCategory("defenses");
-
+    let result = this.initializeEmptyCategory("defenses"); 
     let cat = this._addDefense(tokenId, this.i18n('GURPS.dodge') + ' (' + actor.system.currentdodge + ')', 'DODGE')
     this._addDefense(tokenId, this.i18n('tokenActionHud.gurps.retreatDodge') + ' (' + (actor.system.currentdodge + 3) + ')', 'DODGE +3 ' + this.i18n('GURPS.modifierDodgeRetreat'), cat)
+    if (GURPS.findSkillSpell(actor,'Acrobatics',1,0)) {
+      this._addDefense(tokenId, 'Acrobatic Dodge (' + GURPS.findSkillSpell(actor,'Acrobatics',1,0).level + ')', '/if [Sk:Acrobatics] [Dodge +2] /else [Dodge -2]', cat)
+    }
     this._combineSubcategoryWithCategory(result, '', cat);
-    
     if (!!actor.system.equippedparry) {
       cat = this._addDefense(tokenId, this.i18n('GURPS.parry') + ' (' + actor.system.equippedparry + ')', 'PARRY')
       if (!!actor.system.equippedparryisfencing)
