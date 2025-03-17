@@ -7,7 +7,7 @@ export class MagicItemsPreRollHandler extends PreRollHandler {
 
   /** @override */
   prehandleActionEvent(event, encodedValue) {
-    let payload = encodedValue.split("|");
+    let payload = encodedValue.split("^");
 
     if (payload.length != 3) return false;
 

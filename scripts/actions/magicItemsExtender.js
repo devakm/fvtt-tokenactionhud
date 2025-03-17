@@ -50,7 +50,7 @@ export class MagicItemActionListExtender extends ActionListExtender {
             "magicItem",
             tokenId,
             `${action.id}>${effect.id}`,
-          ].join("|");
+          ].join("^");
           let img = this._getImage(effect);
           let magicItemAction = {
             name: effect.name,

@@ -95,7 +95,7 @@ export class RollHandler {
 
   /** @private */
   _isMultiGenericAction(encodedValue) {
-    let payload = encodedValue.split("|");
+    let payload = encodedValue.split("^");
 
     let macroType = payload[0];
     let actionId = payload[2];
@@ -105,7 +105,7 @@ export class RollHandler {
 
   /** @private */
   async _doMultiGenericAction(encodedValue) {
-    let payload = encodedValue.split("|");
+    let payload = encodedValue.split("^");
     let actionId = payload[2];
 
     if (actionId === "toggleVisibility") {

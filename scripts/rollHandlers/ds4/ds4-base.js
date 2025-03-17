@@ -3,7 +3,7 @@ import { RollHandler } from "../rollHandler.js";
 export class RollHandlerBaseDs4 extends RollHandler {
   /** @override */
   async doHandleActionEvent(event, encodedValue) {
-    const payload = encodedValue.split("|");
+    const payload = encodedValue.split("^");
 
     if (payload.length != 3) {
       super.throwInvalidValueErr();
