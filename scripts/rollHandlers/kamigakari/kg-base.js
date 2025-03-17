@@ -9,7 +9,7 @@ export class RollHandlerBaseKg extends RollHandler {
   doHandleActionEvent(event, encodedValue) {
     let ctrlClick = event.ctrlKey;
 
-    let payload = encodedValue.split("|");
+    let payload = encodedValue.split("^");
     if (payload.length != 3) super.throwInvalidValueErr();
 
     let macroType = payload[0];

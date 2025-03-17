@@ -7,7 +7,7 @@ export class RollHandlerBaseForbiddenlands extends RollHandler {
   }
 
   async doHandleActionEvent(event, encodedValue) {
-    let payload = encodedValue.split('|');
+    let payload = encodedValue.split("^");
     if (payload.length != 4) {
       super.throwInvalidValueErr();
     }

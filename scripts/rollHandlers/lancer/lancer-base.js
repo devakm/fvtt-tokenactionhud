@@ -12,7 +12,7 @@ export class RollHandlerBaseLancer extends RollHandler {
 
   /** @override */
   doHandleActionEvent(event, encodedValue) {
-    let payload = encodedValue.split("|");
+    let payload = encodedValue.split("^");
 
     if (payload.length != 3 && payload.length != 4) {
       super.throwInvalidValueErr();

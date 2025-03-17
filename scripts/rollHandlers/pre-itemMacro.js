@@ -10,7 +10,7 @@ export class ItemMacroPreRollHandler extends PreRollHandler {
   prehandleActionEvent(event, encodedValue) {
     this.registerKeyPresses(event);
 
-    let payload = encodedValue.split("|");
+    let payload = encodedValue.split("^");
 
     if (payload.length != 3) return false;
 

@@ -12,7 +12,7 @@ export class ActionHandler {
   linkedCompendiumsGm = [];
   linkedCompendiumsPlayer = [];
   furtherActionHandlers = [];
-  delimiter = "|";
+  delimiter = "^";
 
   filterManager = null;
 

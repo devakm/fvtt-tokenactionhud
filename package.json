@@ -1,4 +1,22 @@
 {
+  "name": "fvtt-tokenactionhud",
+  "version": "3.0.23",
+  "description": "This module populates a repositionable HUD showing the most common actions for a selected token.",
+  "homepage": "https://github.com/devakm/fvtt-tokenactionhud#readme",
+  "bugs": {
+    "url": "https://github.com/devakm/fvtt-tokenactionhud/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devakm/fvtt-tokenactionhud.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "rollup.config.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -wcm"

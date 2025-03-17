@@ -271,25 +271,25 @@ export class ActionHandlerGURPS extends ActionHandler {
     let result = this.initializeEmptyCategory("postures");
     let attributeCategory = this.initializeEmptySubcategory();
     let postures = {...GURPS.StatusEffect.getAllPostures()}
-    postures[GURPS.StatusEffectStanding] = { id: GURPS.StatusEffectStanding, label: GURPS.StatusEffectStandingLabel, icon: 'icons/svg/invisible.svg' }
+    postures[GURPS.StatusEffectStanding] = { id: GURPS.StatusEffectStanding, name: GURPS.StatusEffectStandingLabel, img: 'systems/gurps/icons/statuses/dd-condition-standing.webp' }
     Object.values(postures).forEach(m => {
       attributeCategory.actions.push({
-        name: this.i18n(m.label),
+        name: this.i18n(m.name),
         encodedValue: ["otf", tokenId, '/st + ' + m.id].join(this.delimiter),
-        img: m.icon
+        img: m.img
       }); 
     })   
     this._combineSubcategoryWithCategory(result, '', attributeCategory);
     return result
   }
-    
   _defenses(actor, tokenId) {
-    let result = this.initializeEmptyCategory("defenses");
-
+    let result = this.initializeEmptyCategory("defenses"); 
     let cat = this._addDefense(tokenId, this.i18n('GURPS.dodge') + ' (' + actor.system.currentdodge + ')', 'DODGE')
     this._addDefense(tokenId, this.i18n('tokenActionHud.gurps.retreatDodge') + ' (' + (actor.system.currentdodge + 3) + ')', 'DODGE +3 ' + this.i18n('GURPS.modifierDodgeRetreat'), cat)
+    if (GURPS.findSkillSpell(actor,'Acrobatics',1,0)) {
+      this._addDefense(tokenId, 'Acrobatic Dodge (' + GURPS.findSkillSpell(actor,'Acrobatics',1,0).level + ')', '/if [Sk:Acrobatics] [Dodge +2] /else [Dodge -2]', cat)
+    }
     this._combineSubcategoryWithCategory(result, '', cat);
-    
     if (!!actor.system.equippedparry) {
       cat = this._addDefense(tokenId, this.i18n('GURPS.parry') + ' (' + actor.system.equippedparry + ')', 'PARRY')
       if (!!actor.system.equippedparryisfencing)
